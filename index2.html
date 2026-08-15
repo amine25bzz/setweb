@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحة المنتج | تِك‌لاين</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0b1220;--navy-900:#0f1a2e;--navy-800:#16233d;--navy-700:#1e2f4d;
+    --steel-300:#c7d0de;--steel-400:#93a1b8;--steel-100:#eef1f6;
+    --amber-400:#f5a524;--amber-500:#e8940f;--amber-600:#c97a08;
+    --ok-500:#2fbf71;--danger-500:#e5484d;--wa-500:#25d366;--wa-600:#1ebe5b;
+    --paper:#f6f7fb;--card-bg:#fff;
+    --radius-lg:20px;--radius-md:14px;
+    --shadow-sm:0 2px 8px rgba(15,26,46,0.06);
+    --shadow-md:0 10px 28px rgba(15,26,46,0.10);
+    --shadow-lg:0 24px 60px rgba(15,26,46,0.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Tajawal','Almarai',sans-serif;background:var(--paper);color:var(--navy-900);min-height:100vh;padding-bottom:92px;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+  /* header */
+  header{background:var(--navy-900);position:sticky;top:0;z-index:50;box-shadow:var(--shadow-md);}
+  .header-wrap{max-width:1000px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:14px;}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:21px;color:#fff;}
+  .logo .dot{color:var(--amber-400);}
+  .logo-badge{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--amber-400),var(--amber-600));display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .logo-badge svg{width:17px;height:17px;stroke:var(--navy-950);}
+  .back-link{margin-right:auto;color:var(--steel-300);font-size:13px;display:flex;align-items:center;gap:6px;transition:.2s;}
+  .back-link:hover{color:#fff;}
+
+  /* progress trust bar */
+  .assurance-bar{background:var(--navy-800);color:var(--steel-300);font-size:12.5px;}
+  .assurance-bar .w{max-width:1000px;margin:0 auto;padding:8px 24px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;}
+  .assurance-bar .w span{display:flex;align-items:center;gap:6px;}
+  .assurance-bar svg{width:14px;height:14px;stroke:var(--amber-400);fill:none;stroke-width:2;}
+
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+
+  /* ===== Hero: image + title + price ===== */
+  .hero{padding:36px 24px 10px;}
+  .hero-grid{display:grid;grid-template-columns:0.85fr 1fr;gap:40px;align-items:center;}
+  .hero-media{
+    background:linear-gradient(150deg,#eef1f8,#e4e8f2);
+    border-radius:var(--radius-lg);
+    display:flex;align-items:center;justify-content:center;
+    aspect-ratio:1/1;padding:34px;position:relative;
+    box-shadow:var(--shadow-sm);
+  }
+  .hero-media img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(15,26,46,0.15));}
+  .hero-media .ribbon{
+    position:absolute;top:18px;right:18px;background:var(--danger-500);color:#fff;
+    font-size:12px;font-weight:800;padding:6px 14px;border-radius:999px;
+  }
+  .hero-info .eyebrow{color:var(--amber-600);font-weight:800;font-size:13px;letter-spacing:.4px;margin-bottom:10px;display:block;}
+  .hero-info h1{font-size:30px;font-weight:900;line-height:1.4;margin-bottom:14px;}
+  .hero-rating{display:flex;align-items:center;gap:10px;margin-bottom:18px;font-size:13.5px;color:var(--steel-400);}
+  .hero-rating .stars{color:var(--amber-500);letter-spacing:2px;font-size:16px;}
+  .hero-rating a{color:var(--navy-700);font-weight:700;text-decoration:underline;}
+
+  .hero-price-box{
+    background:var(--card-bg);border:1.5px solid #ecedf3;border-radius:var(--radius-md);
+    padding:20px;margin-bottom:20px;
+  }
+  .price-line{display:flex;align-items:baseline;gap:12px;}
+  .price-now{font-size:32px;font-weight:900;color:var(--navy-900);}
+  .price-old{font-size:16px;color:var(--steel-400);text-decoration:line-through;}
+  .price-save{background:rgba(47,191,113,0.12);color:var(--ok-500);font-size:12.5px;font-weight:800;padding:3px 10px;border-radius:999px;}
+  .price-note{font-size:12.5px;color:var(--steel-400);margin-top:8px;}
+
+  .hero-highlights{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+  .hero-highlights li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--navy-800);list-style:none;}
+  .hero-highlights svg{width:19px;height:19px;stroke:var(--ok-500);fill:none;stroke-width:2.4;flex-shrink:0;}
+
+  .hero-ctas{display:flex;gap:12px;}
+  .btn-primary{
+    flex:1;background:var(--amber-500);color:#fff;font-weight:800;font-size:15px;
+    padding:15px;border-radius:12px;text-align:center;transition:.2s;
+    box-shadow:0 8px 22px rgba(232,148,15,0.30);
+  }
+  .btn-primary:hover{background:var(--amber-600);transform:translateY(-2px);}
+  .btn-secondary{
+    width:56px;background:var(--card-bg);border:1.5px solid #e3e6ee;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;transition:.2s;
+  }
+  .btn-secondary svg{width:21px;height:21px;stroke:var(--navy-800);fill:none;stroke-width:1.8;}
+  .btn-secondary:hover{border-color:var(--danger-500);}
+  .btn-secondary:hover svg{stroke:var(--danger-500);}
+
+  /* section shared */
+  .section{padding:54px 24px;}
+  .section.alt{background:#fff;}
+  .section-inner{max-width:1000px;margin:0 auto;}
+  .section-head{text-align:center;max-width:600px;margin:0 auto 40px;}
+  .section-head .eyebrow{color:var(--amber-600);font-weight:800;font-size:12.5px;letter-spacing:.4px;display:block;margin-bottom:8px;}
+  .section-head h2{font-size:26px;font-weight:900;margin-bottom:12px;}
+  .section-head p{color:var(--steel-400);font-size:14.5px;line-height:1.8;}
+
+  /* long description + selling points */
+  .desc-text{font-size:15.5px;line-height:2.1;color:var(--navy-800);max-width:760px;margin:0 auto 30px;}
+  .desc-text strong{color:var(--navy-900);}
+
+  .sell-points{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto;
+  }
+  .sell-point{
+    background:var(--paper);border-radius:var(--radius-md);padding:22px 18px;text-align:center;
+    border:1px solid #ecedf3;transition:.25s;
+  }
+  .sell-point:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent;}
+  .sell-point .ic{
+    width:48px;height:48px;border-radius:12px;background:rgba(232,148,15,0.12);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 14px;
+  }
+  .sell-point .ic svg{width:24px;height:24px;stroke:var(--amber-600);fill:none;stroke-width:1.8;}
+  .sell-point h4{font-size:15px;font-weight:800;margin-bottom:6px;}
+  .sell-point p{font-size:13px;color:var(--steel-400);line-height:1.7;}
+
+  /* feature blocks: big image + short text, alternating */
+  .feature-block{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+    margin-top:64px;
+  }
+  .feature-block.reverse{direction:ltr;}
+  .feature-block.reverse > *{direction:rtl;}
+  .feature-media{
+    background:linear-gradient(150deg,#f0f2f8,#e6e9f2);
+    border-radius:var(--radius-lg);aspect-ratio:4/3;
+    display:flex;align-items:center;justify-content:center;padding:30px;
+    box-shadow:var(--shadow-sm);
+  }
+  .feature-media img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 16px 24px rgba(15,26,46,0.12));}
+  .feature-text .tag{color:var(--amber-600);font-weight:800;font-size:12.5px;letter-spacing:.4px;display:block;margin-bottom:10px;}
+  .feature-text h3{font-size:22px;font-weight:900;margin-bottom:14px;line-height:1.5;}
+  .feature-text p{font-size:14.5px;color:var(--steel-400);line-height:2;}
+
+  /* reviews */
+  .reviews-summary{
+    display:flex;align-items:center;gap:28px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;
+  }
+  .rs-score{text-align:center;}
+  .rs-score .num{font-size:46px;font-weight:900;color:var(--navy-900);}
+  .rs-score .stars{color:var(--amber-500);font-size:18px;letter-spacing:2px;margin:4px 0;}
+  .rs-score .count{font-size:12.5px;color:var(--steel-400);}
+  .rs-bars{display:flex;flex-direction:column;gap:6px;min-width:220px;}
+  .rs-bar-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--steel-400);}
+  .rs-bar-row .track{flex:1;height:7px;background:#eee;border-radius:99px;overflow:hidden;}
+  .rs-bar-row .fill{height:100%;background:var(--amber-500);}
+
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .review-card{
+    background:var(--paper);border:1px solid #ecedf3;border-radius:var(--radius-md);padding:20px;
+  }
+  .review-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .review-avatar{
+    width:38px;height:38px;border-radius:50%;background:var(--navy-800);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;
+  }
+  .review-name{font-size:13.5px;font-weight:800;}
+  .review-date{font-size:11.5px;color:var(--steel-400);}
+  .review-stars{color:var(--amber-500);font-size:13px;letter-spacing:1.5px;margin-bottom:8px;}
+  .review-text{font-size:13.5px;color:var(--navy-800);line-height:1.9;}
+  .verified-badge{
+    display:inline-flex;align-items:center;gap:4px;background:rgba(47,191,113,0.12);color:var(--ok-500);
+    font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;margin-top:10px;
+  }
+  .verified-badge svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;}
+
+  /* final CTA section */
+  .final-cta{
+    background:linear-gradient(120deg,var(--navy-900),var(--navy-700));
+    border-radius:var(--radius-lg);padding:44px 40px;text-align:center;color:#fff;
+    max-width:1000px;margin:0 auto;
+  }
+  .final-cta h2{font-size:24px;font-weight:900;margin-bottom:10px;}
+  .final-cta p{color:var(--steel-300);font-size:14px;margin-bottom:24px;}
+  .final-cta .btn-wa{
+    display:inline-flex;align-items:center;gap:10px;background:var(--wa-500);color:#fff;
+    font-weight:800;font-size:15.5px;padding:16px 36px;border-radius:14px;transition:.2s;
+  }
+  .final-cta .btn-wa:hover{background:var(--wa-600);transform:translateY(-2px);}
+  .final-cta .btn-wa svg{width:22px;height:22px;fill:#fff;}
+
+  /* sticky bottom bar */
+  .sticky-bar{
+    position:fixed;bottom:0;left:0;right:0;z-index:60;
+    background:#fff;border-top:1px solid #eee;box-shadow:0 -8px 24px rgba(15,26,46,0.10);
+    padding:12px 24px;
+  }
+  .sticky-inner{
+    max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .sticky-price{display:flex;flex-direction:column;}
+  .sticky-price .lbl{font-size:11.5px;color:var(--steel-400);}
+  .sticky-price .val{font-size:19px;font-weight:900;color:var(--navy-900);}
+  .sticky-wa{
+    display:flex;align-items:center;gap:10px;background:var(--wa-500);color:#fff;font-weight:800;
+    font-size:14.5px;padding:13px 26px;border-radius:12px;transition:.2s;flex-shrink:0;
+  }
+  .sticky-wa:hover{background:var(--wa-600);}
+  .sticky-wa svg{width:19px;height:19px;fill:#fff;}
+
+  .empty-state{text-align:center;padding:100px 24px;color:var(--steel-400);}
+  .empty-state svg{width:60px;height:60px;stroke:#d5dae5;fill:none;stroke-width:1.2;margin-bottom:16px;}
+  .empty-state a{display:inline-block;margin-top:16px;background:var(--amber-500);color:#fff;padding:12px 26px;border-radius:10px;font-weight:700;font-size:14px;}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:24px;}
+    .sell-points{grid-template-columns:1fr;}
+    .feature-block, .feature-block.reverse{grid-template-columns:1fr;direction:rtl;}
+    .reviews-grid{grid-template-columns:1fr;}
+    .reviews-summary{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <a href="index.html" class="logo">
+      <div class="logo-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+      تِك<span class="dot">لاين</span>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      العودة للمتجر
+    </a>
+  </div>
+</header>
+<div class="assurance-bar">
+  <div class="w">
+    <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> ضمان رسمي سنتان</span>
+    <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> شحن مجاني وتوصيل سريع</span>
+    <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> إرجاع مجاني خلال 14 يوم</span>
+  </div>
+</div>
+
+<div id="content"></div>
+
+<script>
+const PRODUCTS = {
+  1: {
+    name: "باك زهرة الياسمين - العناية المتكاملة",
+    brand: "زهيرة",
+    price: 149, oldPrice: 199,
+    rating: 4.9, reviewsCount: 312,
+    img: "1.png",
+    ribbon: "الأكثر طلباً",
+    highlights: [
+      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
+      "رائحة ياسمين فاخرة تدوم طوال اليوم",
+      "مكونات طبيعية 100% تناسب جميع أنواع البشرة"
+    ],
+    longDesc: "استمتعي بتجربة عناية استثنائية مع باك <strong>زهرة الياسمين</strong> من زهيرة: تركيبة ثلاثية متكاملة تجمع بين الترطيب العميق والرائحة الفواحة التي تدوم من الصباح حتى المساء. كريم معطر للجسم بقوام غني، تيوب مرطب سريع الامتصاص، وسبراي منعش لإعادة الانتعاش في أي وقت. عناية فاخرة بلمسة يومية بسيطة، لبشرة ناعمة ورائحة تأسر من حولك.",
+    sellPoints: [
+      { title:"عطر فاخر", desc:"يدوم طويلاً ويمنحك ثقة تلازمك طوال اليوم", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"ترطيب عميق", desc:"لبشرة ناعمة وصحية من أول استخدام", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/><path d='M12 8v6'/>" },
+      { title:"مكونات طبيعية", desc:"مختارة بعناية وآمنة على جميع أنواع البشرة", icon:"<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/>" }
+    ],
+    features: [
+      { tag:"التركيبة", title:"3 منتجات، عناية واحدة متكاملة", desc:"كريم معطر بقوام كريمي غني، تيوب مرطب يومي سريع الامتصاص، وسبراي جسم للانتعاش الفوري — كل ما تحتاجينه في باك واحد أنيق." },
+      { tag:"الرائحة", title:"رائحة تلازمك من الصباح حتى المساء", desc:"مزيج ياسمين ناعم ودافئ، مصمم ليدوم طويلاً دون أن يكون ثقيلاً، مثالي للاستخدام اليومي وللمناسبات." }
+    ]
+  },
+  2: {
+    name: "باك عبق الورد - العناية المتكاملة",
+    brand: "زهيرة",
+    price: 149, oldPrice: 199,
+    rating: 4.8, reviewsCount: 246,
+    img: "2.png",
+    ribbon: "جديد",
+    highlights: [
+      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
+      "رائحة ورد كلاسيكية أنثوية تدوم طويلاً",
+      "قوام كريمي غني يرطب دون أن يترك أثراً دهنياً"
+    ],
+    longDesc: "باك <strong>عبق الورد</strong> يمنحكِ لمسة أنوثة راقية في كل استخدام. تركيبة ثلاثية مدروسة تجمع بين الترطيب الفوري والرائحة الدافئة التي تعكس شخصيتك الأنيقة. مثالي كهدية لمن تحبين، أو كتدليل يومي لنفسك — عناية متكاملة بتصميم فاخر يليق بلحظاتك الخاصة.",
+    sellPoints: [
+      { title:"رائحة آسرة", desc:"عبق ورد دافئ يترك انطباعاً لا يُنسى", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"نعومة فورية", desc:"بشرة ناعمة من الاستخدام الأول", icon:"<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 3'/>" },
+      { title:"هدية مثالية", desc:"تغليف أنيق يجعله هدية لا تُقاوم", icon:"<path d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'/>" }
+    ],
+    features: [
+      { tag:"القوام", title:"ترطيب غني دون ثقل", desc:"كريم بقوام حريري يمتصه الجلد بسرعة، يترك البشرة ناعمة ومشرقة دون أي إحساس دهني أو لزج." },
+      { tag:"الاستخدام", title:"روتين جمالي بسيط وفعّال", desc:"ثلاث خطوات فقط يومياً: كريم، مرطب، ورشة سبراي — لعناية متكاملة لا تأخذ من وقتك أكثر من دقيقتين." }
+    ]
+  },
+  3: {
+    name: "باك زهرة اللوتس - العناية المتكاملة",
+    brand: "زهيرة",
+    price: 149, oldPrice: 199,
+    rating: 4.9, reviewsCount: 198,
+    img: "3.png",
+    ribbon: "خصم 25%",
+    highlights: [
+      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
+      "رائحة لوتس منعشة تناسب الاستخدام اليومي",
+      "انتعاش فوري برذاذ خفيف يحسّن حواسك"
+    ],
+    longDesc: "لمن تحب النقاء والانتعاش، باك <strong>زهرة اللوتس</strong> يجمع بين الترطيب المتوازن ورائحة منعشة تبعث الحيوية في يومك. تركيبة خفيفة تناسب جميع الفصول، مثالية للاستخدام صباحاً قبل الخروج أو لتجديد الانتعاش خلال اليوم. عناية بسيطة وفعّالة تمنحك شعوراً بالنظافة والانتعاش طوال الوقت.",
+    sellPoints: [
+      { title:"انتعاش فوري", desc:"رذاذ خفيف يمنحك شعوراً بالنشاط طوال اليوم", icon:"<path d='M12 2v4'/><path d='M12 18v4'/><path d='M4.9 4.9l2.8 2.8'/><path d='M16.3 16.3l2.8 2.8'/><path d='M2 12h4'/><path d='M18 12h4'/><path d='M4.9 19.1l2.8-2.8'/><path d='M16.3 7.7l2.8-2.8'/>" },
+      { title:"توازن مثالي", desc:"يرطب دون أن يثقل، مناسب لكل أنواع البشرة", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"جودة عالية", desc:"مكونات مختارة بعناية لنتائج تدوم", icon:"<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/>" }
+    ],
+    features: [
+      { tag:"الانتعاش", title:"طاقة متجددة في كل رشة", desc:"سبراي الجسم بخلاصة اللوتس يمنحك دفعة انتعاش فورية، مثالي لتجديد النشاط في منتصف اليوم أو بعد التمرين." },
+      { tag:"للاستخدام اليومي", title:"خفيف يناسب كل الفصول", desc:"تركيبة غير دهنية تمتصها البشرة بسرعة، فتحصلين على ترطيب ورائحة منعشة دون ثقل، صيفاً وشتاءً." }
+    ]
+  },
+  4: {
+    name: "باك نسمة الفانيليا - العناية المتكاملة",
+    brand: "زهيرة",
+    price: 149, oldPrice: 199,
+    rating: 4.7, reviewsCount: 167,
+    img: "4.png",
+    ribbon: null,
+    highlights: [
+      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
+      "رائحة فانيليا دافئة وحلوة تدوم طويلاً",
+      "تركيبة مرطبة تمنح البشرة نعومة حريرية"
+    ],
+    longDesc: "باك <strong>نسمة الفانيليا</strong> يمنحكِ دفئاً وحلاوة في رائحة تلتف حولك طوال اليوم. تركيبة ثلاثية غنية بالترطيب، مصممة لتدلل بشرتك وتترك أثراً عطرياً ناعماً يبقى في الذاكرة. اختيار مثالي لمحبات الروائح الحلوة الدافئة، سواء للاستخدام اليومي أو كهدية مميزة لمن تحبين.",
+    sellPoints: [
+      { title:"دفء وحلاوة", desc:"رائحة فانيليا آسرة تدوم من الصباح للمساء", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"نعومة حريرية", desc:"ترطيب عميق يترك البشرة ناعمة كالحرير", icon:"<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 3'/>" },
+      { title:"جودة مضمونة", desc:"مكونات مختارة بعناية فائقة قبل التعبئة", icon:"<path d='M20 6 9 17l-5-5'/>" }
+    ],
+    features: [
+      { tag:"الرائحة", title:"دفء الفانيليا في كل لحظة", desc:"مزيج فانيليا حلو ودافئ يمنحك حضوراً مميزاً أينما ذهبتِ، دون أن يكون ثقيلاً أو مزعجاً." },
+      { tag:"العناية", title:"روتين تدليل يومي بسيط", desc:"من الكريم الغني إلى السبراي المنعش، ثلاث خطوات تمنح بشرتك كل ما تحتاجه من رطوبة ورائحة فاخرة." }
+    ]
+  }
+};
+
+const WHATSAPP_NUMBER = "212715072766"; // رقم واتساب المتجر
+
+const params = new URLSearchParams(window.location.search);
+let selectedId = params.get('id');
+if(!selectedId){
+  try{ selectedId = localStorage.getItem('teckline_selected_product'); }catch(e){}
+}
+const product = PRODUCTS[selectedId] || PRODUCTS[1];
+const content = document.getElementById('content');
+
+if(!product){
+  content.innerHTML = `
+    <div class="empty-state">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      <p>لم يتم اختيار منتج بعد.</p>
+      <a href="index.html">تصفح المنتجات</a>
+    </div>`;
+} else {
+  const waMsg = encodeURIComponent(`مرحباً، أرغب في شراء المنتج التالي:\n${product.name}\nالسعر: ${product.price} درهم\nرابط المنتج: ${window.location.href}`);
+  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+
+  const savePct = product.oldPrice ? Math.round((1 - product.price/product.oldPrice) * 100) : null;
+
+  const reviews = [
+    { name:"يوسف ب.", initial:"ي", stars:5, date:"منذ 4 أيام", text:"جودة ممتازة والتوصيل كان سريعاً جداً، المنتج طابق الوصف تماماً وسأكرر الشراء بكل تأكيد." },
+    { name:"سارة م.", initial:"س", stars:5, date:"منذ أسبوع", text:"تجربة شراء رائعة من البداية للنهاية، التغليف احترافي والمنتج يستحق كل درهم دفعته." },
+    { name:"عبد الرحيم ك.", initial:"ع", stars:4, date:"منذ أسبوعين", text:"منتج جيد جداً وخدمة العملاء متعاونة، فقط تمنيت لو كان التوصيل أسرع قليلاً." }
+  ];
+  const starsStr = n => "★".repeat(n) + "☆".repeat(5-n);
+
+  content.innerHTML = `
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-media">
+          ${product.ribbon ? `<span class="ribbon">${product.ribbon}</span>` : ''}
+          <img src="${product.img}" alt="${product.name}">
+        </div>
+        <div class="hero-info">
+          <span class="eyebrow">${product.brand}</span>
+          <h1>${product.name}</h1>
+          <div class="hero-rating">
+            <span class="stars">${starsStr(Math.round(product.rating))}</span>
+            <span>${product.rating} من 5</span>
+            <a href="#reviews">(${product.reviewsCount} تقييم)</a>
+          </div>
+
+          <div class="hero-price-box">
+            <div class="price-line">
+              <span class="price-now">${product.price} درهم</span>
+              ${product.oldPrice ? `<span class="price-old">${product.oldPrice} درهم</span>` : ''}
+              ${savePct ? `<span class="price-save">وفّر ${savePct}%</span>` : ''}
+            </div>
+            <p class="price-note">السعر شامل الضريبة، والشحن مجاني لهذا المنتج</p>
+          </div>
+
+          <ul class="hero-highlights">
+            ${product.highlights.map(h => `<li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>${h}</li>`).join('')}
+          </ul>
+
+          <div class="hero-ctas">
+            <a href="${waLink}" target="_blank" class="btn-primary">أكمل الطلب الآن</a>
+            <button class="btn-secondary" aria-label="أضف للمفضلة">
+              <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Long description + selling points -->
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">لماذا هذا المنتج</span>
+          <h2>صُنع ليمنحك تجربة استثنائية</h2>
+        </div>
+        <p class="desc-text">${product.longDesc}</p>
+        <div class="sell-points">
+          ${product.sellPoints.map(sp => `
+            <div class="sell-point">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">${sp.icon}</svg></div>
+              <h4>${sp.title}</h4>
+              <p>${sp.desc}</p>
+            </div>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature blocks: big image + short text -->
+    <section class="section">
+      <div class="section-inner">
+        ${product.features.map((f, i) => `
+          <div class="feature-block ${i % 2 === 1 ? 'reverse' : ''}">
+            <div class="feature-media"><img src="${product.img}" alt="${f.title}"></div>
+            <div class="feature-text">
+              <span class="tag">${f.tag}</span>
+              <h3>${f.title}</h3>
+              <p>${f.desc}</p>
+            </div>
+          </div>`).join('')}
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section alt" id="reviews">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">آراء العملاء</span>
+          <h2>ماذا يقول من جرّب المنتج</h2>
+        </div>
+        <div class="reviews-summary">
+          <div class="rs-score">
+            <div class="num">${product.rating}</div>
+            <div class="stars">${starsStr(Math.round(product.rating))}</div>
+            <div class="count">بناءً على ${product.reviewsCount} تقييم</div>
+          </div>
+          <div class="rs-bars">
+            <div class="rs-bar-row"><span>5</span><div class="track"><div class="fill" style="width:78%"></div></div><span>78%</span></div>
+            <div class="rs-bar-row"><span>4</span><div class="track"><div class="fill" style="width:15%"></div></div><span>15%</span></div>
+            <div class="rs-bar-row"><span>3</span><div class="track"><div class="fill" style="width:5%"></div></div><span>5%</span></div>
+            <div class="rs-bar-row"><span>2</span><div class="track"><div class="fill" style="width:1%"></div></div><span>1%</span></div>
+            <div class="rs-bar-row"><span>1</span><div class="track"><div class="fill" style="width:1%"></div></div><span>1%</span></div>
+          </div>
+        </div>
+        <div class="reviews-grid">
+          ${reviews.map(r => `
+            <div class="review-card">
+              <div class="review-head">
+                <div class="review-avatar">${r.initial}</div>
+                <div>
+                  <div class="review-name">${r.name}</div>
+                  <div class="review-date">${r.date}</div>
+                </div>
+              </div>
+              <div class="review-stars">${starsStr(r.stars)}</div>
+              <p class="review-text">${r.text}</p>
+              <span class="verified-badge"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>عملية شراء موثقة</span>
+            </div>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+      <div class="final-cta">
+        <h2>جاهز لطلب ${product.name}؟</h2>
+        <p>تواصل معنا مباشرة عبر واتساب لتأكيد طلبك وسنرد عليك خلال دقائق</p>
+        <a href="${waLink}" target="_blank" class="btn-wa">
+          <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+          تأكيد الطلب عبر واتساب
+        </a>
+      </div>
+    </section>
+  `;
+
+  // sticky bottom bar
+  const bar = document.createElement('div');
+  bar.className = 'sticky-bar';
+  bar.innerHTML = `
+    <div class="sticky-inner">
+      <div class="sticky-price">
+        <span class="lbl">السعر الإجمالي</span>
+        <span class="val">${product.price} درهم</span>
+      </div>
+      <a href="${waLink}" target="_blank" class="sticky-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+        أكمل عبر واتساب
+      </a>
+    </div>`;
+  document.body.appendChild(bar);
+}
+</script>
+</body>
+</html>
