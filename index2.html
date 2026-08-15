@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحة المنتج | تِك‌لاين</title>
+<title>صفحة المنتج | بوتيك ريفا</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 <style>
@@ -30,7 +30,7 @@
   .header-wrap{max-width:1000px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:14px;}
   .logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:21px;color:#fff;}
   .logo .dot{color:var(--amber-400);}
-  .logo-badge{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--amber-400),var(--amber-600));display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .logo-badge{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .logo-badge svg{width:17px;height:17px;stroke:var(--navy-950);}
   .back-link{margin-right:auto;color:var(--steel-300);font-size:13px;display:flex;align-items:center;gap:6px;transition:.2s;}
   .back-link:hover{color:#fff;}
@@ -121,6 +121,18 @@
   .sell-point .ic svg{width:24px;height:24px;stroke:var(--amber-600);fill:none;stroke-width:1.8;}
   .sell-point h4{font-size:15px;font-weight:800;margin-bottom:6px;}
   .sell-point p{font-size:13px;color:var(--steel-400);line-height:1.7;}
+
+  /* usage steps */
+  .usage-steps{display:flex;flex-direction:column;gap:14px;max-width:680px;margin:0 auto;}
+  .usage-step{
+    display:flex;align-items:flex-start;gap:16px;background:var(--card-bg);
+    border:1px solid #ecedf3;border-radius:var(--radius-md);padding:18px 20px;
+  }
+  .usage-num{
+    width:32px;height:32px;border-radius:50%;background:var(--amber-500);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0;
+  }
+  .usage-step p{font-size:14.5px;color:var(--navy-800);line-height:1.9;}
 
   /* feature blocks: big image + short text, alternating */
   .feature-block{
@@ -223,11 +235,12 @@
 
 <header>
   <div class="header-wrap">
-    <a href="index.html" class="logo">
-      <div class="logo-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
-      تِك<span class="dot">لاين</span>
-    </a>
-    <a href="index.html" class="back-link">
+    <div class="logo">
+        <div class="logo-badge">
+          <img src="5.png" alt="RA REVA" style="width:100%;height:100%;object-fit:contain;">
+        </div>REVA<span class="dot">RA</span>
+    </div>
+    <a href="store.html" class="back-link">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
       العودة للمتجر
     </a>
@@ -235,7 +248,7 @@
 </header>
 <div class="assurance-bar">
   <div class="w">
-    <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> ضمان رسمي سنتان</span>
+    <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> مكونات طبيعية 100%</span>
     <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> شحن مجاني وتوصيل سريع</span>
     <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> إرجاع مجاني خلال 14 يوم</span>
   </div>
@@ -246,100 +259,120 @@
 <script>
 const PRODUCTS = {
   1: {
-    name: "باك زهرة الياسمين - العناية المتكاملة",
-    brand: "زهيرة",
+    name: "باك العناية الكامل - 3 زيوت (خزامة، ورد، هيملايا)",
+    brand: "RA REVA",
     price: 149, oldPrice: 199,
-    rating: 4.9, reviewsCount: 312,
+    rating: 4.9, reviewsCount: 284,
     img: "1.png",
     ribbon: "الأكثر طلباً",
     highlights: [
-      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
-      "رائحة ياسمين فاخرة تدوم طوال اليوم",
-      "مكونات طبيعية 100% تناسب جميع أنواع البشرة"
+      "3 زيوت في باك واحد: خزامة 💜 + ورد 🌹 + هيملايا 🤍",
+      "50 مل لكل زجاجة، تركيبة نقية 100% طبيعية",
+      "روتين عناية كامل يدوم لأسابيع"
     ],
-    longDesc: "استمتعي بتجربة عناية استثنائية مع باك <strong>زهرة الياسمين</strong> من زهيرة: تركيبة ثلاثية متكاملة تجمع بين الترطيب العميق والرائحة الفواحة التي تدوم من الصباح حتى المساء. كريم معطر للجسم بقوام غني، تيوب مرطب سريع الامتصاص، وسبراي منعش لإعادة الانتعاش في أي وقت. عناية فاخرة بلمسة يومية بسيطة، لبشرة ناعمة ورائحة تأسر من حولك.",
+    longDesc: "✨ باك العناية بالجسم وصل! 3 زيوت فـ باك واحد باش تعيشي تجربة عناية مختلفة كل نهار 💕 <strong>زيت الخزامة</strong> برائحة هادئة وناعمة، <strong>زيت الورد</strong> بنفحة أنيقة ورومانسية، و<strong>زيت الهيملايا</strong> برائحة مميزة ومنعشة. اختاري الرائحة اللي كتشبه ليك كل يوم، وخلي العناية بجسمك تولّي طقس ممتع تنتظرينه.",
     sellPoints: [
-      { title:"عطر فاخر", desc:"يدوم طويلاً ويمنحك ثقة تلازمك طوال اليوم", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
-      { title:"ترطيب عميق", desc:"لبشرة ناعمة وصحية من أول استخدام", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/><path d='M12 8v6'/>" },
-      { title:"مكونات طبيعية", desc:"مختارة بعناية وآمنة على جميع أنواع البشرة", icon:"<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/>" }
-    ],
-    features: [
-      { tag:"التركيبة", title:"3 منتجات، عناية واحدة متكاملة", desc:"كريم معطر بقوام كريمي غني، تيوب مرطب يومي سريع الامتصاص، وسبراي جسم للانتعاش الفوري — كل ما تحتاجينه في باك واحد أنيق." },
-      { tag:"الرائحة", title:"رائحة تلازمك من الصباح حتى المساء", desc:"مزيج ياسمين ناعم ودافئ، مصمم ليدوم طويلاً دون أن يكون ثقيلاً، مثالي للاستخدام اليومي وللمناسبات." }
-    ]
-  },
-  2: {
-    name: "باك عبق الورد - العناية المتكاملة",
-    brand: "زهيرة",
-    price: 149, oldPrice: 199,
-    rating: 4.8, reviewsCount: 246,
-    img: "2.png",
-    ribbon: "جديد",
-    highlights: [
-      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
-      "رائحة ورد كلاسيكية أنثوية تدوم طويلاً",
-      "قوام كريمي غني يرطب دون أن يترك أثراً دهنياً"
-    ],
-    longDesc: "باك <strong>عبق الورد</strong> يمنحكِ لمسة أنوثة راقية في كل استخدام. تركيبة ثلاثية مدروسة تجمع بين الترطيب الفوري والرائحة الدافئة التي تعكس شخصيتك الأنيقة. مثالي كهدية لمن تحبين، أو كتدليل يومي لنفسك — عناية متكاملة بتصميم فاخر يليق بلحظاتك الخاصة.",
-    sellPoints: [
-      { title:"رائحة آسرة", desc:"عبق ورد دافئ يترك انطباعاً لا يُنسى", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
-      { title:"نعومة فورية", desc:"بشرة ناعمة من الاستخدام الأول", icon:"<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 3'/>" },
+      { title:"3 روائح مختلفة", desc:"طقس عناية جديد كل يوم حسب مزاجك", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"تركيبة نقية", desc:"زيوت طبيعية تحترم بشرتك ولا تثقلها", icon:"<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/>" },
       { title:"هدية مثالية", desc:"تغليف أنيق يجعله هدية لا تُقاوم", icon:"<path d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'/>" }
     ],
     features: [
-      { tag:"القوام", title:"ترطيب غني دون ثقل", desc:"كريم بقوام حريري يمتصه الجلد بسرعة، يترك البشرة ناعمة ومشرقة دون أي إحساس دهني أو لزج." },
-      { tag:"الاستخدام", title:"روتين جمالي بسيط وفعّال", desc:"ثلاث خطوات فقط يومياً: كريم، مرطب، ورشة سبراي — لعناية متكاملة لا تأخذ من وقتك أكثر من دقيقتين." }
+      { tag:"الخزامة 💜", title:"رائحة هادئة ولمسة ناعمة", desc:"لبشرة كتستاهل الدلال — زيت الخزامة يمنحك إحساساً بالهدوء والاسترخاء مع كل استخدام." },
+      { tag:"الورد 🌹", title:"نفحات وردية أنيقة", desc:"إحساس بالنعومة والانتعاش، رائحة رومانسية تلازمك طوال اليوم." }
+    ],
+    usage: [
+      "بعد الاستحمام، ضعي كمية مناسبة من الزيت على بشرة نظيفة، ويفضل أن تكون رطبة قليلاً.",
+      "دلكي بلطف بحركات دائرية حتى يمتصه الجلد.",
+      "يمكن استعماله يومياً، خصوصاً بعد الاستحمام، للحصول على بشرة ناعمة ومعطرة."
+    ]
+  },
+  2: {
+    name: "زيت الخزامة الفاخر - عناية بالجسم 50ml",
+    brand: "RA REVA",
+    price: 89, oldPrice: 119,
+    rating: 4.8, reviewsCount: 176,
+    img: "2.png",
+    ribbon: "جديد",
+    highlights: [
+      "رائحة خزامة هادئة تمنحك إحساساً بالاسترخاء",
+      "تركيبة طبيعية 100% بحجم 50 مل",
+      "تدلك بسهولة وتمتصها البشرة بسرعة"
+    ],
+    longDesc: "💜 <strong>زيت الخزامة</strong> — رائحة هادئة ولمسة ناعمة لبشرة كتستاهل الدلال. تركيبة خفيفة تمنح بشرتك الترطيب الذي تحتاجه مع رائحة تبعث على الاسترخاء والراحة، مثالية لروتين المساء أو بعد الاستحمام.",
+    sellPoints: [
+      { title:"استرخاء فوري", desc:"رائحة خزامة تهدّئ الحواس بعد يوم طويل", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"ترطيب ناعم", desc:"يترك البشرة ناعمة دون أثر دهني", icon:"<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 3'/>" },
+      { title:"مكونات طبيعية", desc:"آمنة على جميع أنواع البشرة", icon:"<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/>" }
+    ],
+    features: [
+      { tag:"الرائحة", title:"هدوء يلف بشرتك", desc:"مزيج خزامة ناعم يمنحك لحظة استرخاء حقيقية، مثالي لروتين المساء قبل النوم." },
+      { tag:"التركيبة", title:"خفيفة وسريعة الامتصاص", desc:"تدخل البشرة بسلاسة دون أن تترك أي لمعان أو ثقل، فقط نعومة تدوم." }
+    ],
+    usage: [
+      "بعد الاستحمام، ضعي كمية مناسبة من الزيت على بشرة نظيفة، ويفضل أن تكون رطبة قليلاً.",
+      "دلكي بلطف بحركات دائرية حتى يمتصه الجلد.",
+      "يمكن استعماله يومياً للحصول على بشرة ناعمة ومعطرة."
     ]
   },
   3: {
-    name: "باك زهرة اللوتس - العناية المتكاملة",
-    brand: "زهيرة",
-    price: 149, oldPrice: 199,
-    rating: 4.9, reviewsCount: 198,
+    name: "زيت الورد الأنيق - عناية بالجسم 50ml",
+    brand: "RA REVA",
+    price: 89, oldPrice: 119,
+    rating: 4.9, reviewsCount: 231,
     img: "3.png",
-    ribbon: "خصم 25%",
+    ribbon: "الأكثر مبيعاً",
     highlights: [
-      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
-      "رائحة لوتس منعشة تناسب الاستخدام اليومي",
-      "انتعاش فوري برذاذ خفيف يحسّن حواسك"
+      "نفحة وردية أنيقة ورومانسية تدوم طويلاً",
+      "تركيبة طبيعية 100% بحجم 50 مل",
+      "إحساس بالنعومة والانتعاش من أول استخدام"
     ],
-    longDesc: "لمن تحب النقاء والانتعاش، باك <strong>زهرة اللوتس</strong> يجمع بين الترطيب المتوازن ورائحة منعشة تبعث الحيوية في يومك. تركيبة خفيفة تناسب جميع الفصول، مثالية للاستخدام صباحاً قبل الخروج أو لتجديد الانتعاش خلال اليوم. عناية بسيطة وفعّالة تمنحك شعوراً بالنظافة والانتعاش طوال الوقت.",
+    longDesc: "🌹 <strong>زيت الورد</strong> — نفحات وردية أنيقة وإحساس بالنعومة والانتعاش. تركيبة راقية تجمع بين الترطيب العميق ورائحة الورد الكلاسيكية التي تعكس أنوثتك، مثالية للاستخدام اليومي أو كهدية مميزة لمن تحبين.",
     sellPoints: [
-      { title:"انتعاش فوري", desc:"رذاذ خفيف يمنحك شعوراً بالنشاط طوال اليوم", icon:"<path d='M12 2v4'/><path d='M12 18v4'/><path d='M4.9 4.9l2.8 2.8'/><path d='M16.3 16.3l2.8 2.8'/><path d='M2 12h4'/><path d='M18 12h4'/><path d='M4.9 19.1l2.8-2.8'/><path d='M16.3 7.7l2.8-2.8'/>" },
-      { title:"توازن مثالي", desc:"يرطب دون أن يثقل، مناسب لكل أنواع البشرة", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
-      { title:"جودة عالية", desc:"مكونات مختارة بعناية لنتائج تدوم", icon:"<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/>" }
+      { title:"رائحة آسرة", desc:"عبق ورد أنيق يترك انطباعاً لا يُنسى", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"نعومة فورية", desc:"بشرة ناعمة ومنتعشة من أول استخدام", icon:"<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 3'/>" },
+      { title:"هدية مثالية", desc:"تصميم أنيق يجعله هدية لا تُقاوم", icon:"<path d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'/>" }
     ],
     features: [
-      { tag:"الانتعاش", title:"طاقة متجددة في كل رشة", desc:"سبراي الجسم بخلاصة اللوتس يمنحك دفعة انتعاش فورية، مثالي لتجديد النشاط في منتصف اليوم أو بعد التمرين." },
-      { tag:"للاستخدام اليومي", title:"خفيف يناسب كل الفصول", desc:"تركيبة غير دهنية تمتصها البشرة بسرعة، فتحصلين على ترطيب ورائحة منعشة دون ثقل، صيفاً وشتاءً." }
+      { tag:"الرائحة", title:"أنوثة راقية في كل رشة", desc:"مزيج ورد دافئ وأنيق، مصمم ليدوم طويلاً دون أن يكون ثقيلاً، مثالي للاستخدام اليومي وللمناسبات." },
+      { tag:"الملمس", title:"ترطيب حريري بلا ثقل", desc:"يمتصه الجلد بسرعة تاركاً بشرة ناعمة ومشرقة، بدون أي إحساس دهني." }
+    ],
+    usage: [
+      "بعد الاستحمام، ضعي كمية مناسبة من الزيت على بشرة نظيفة، ويفضل أن تكون رطبة قليلاً.",
+      "دلكي بلطف بحركات دائرية حتى يمتصه الجلد.",
+      "يمكن استعماله يومياً، خصوصاً بعد الاستحمام، للحصول على بشرة ناعمة ومعطرة."
     ]
   },
   4: {
-    name: "باك نسمة الفانيليا - العناية المتكاملة",
-    brand: "زهيرة",
-    price: 149, oldPrice: 199,
-    rating: 4.7, reviewsCount: 167,
+    name: "زيت الهيملايا المميز - عناية بالجسم 50ml",
+    brand: "RA REVA",
+    price: 89, oldPrice: 119,
+    rating: 4.7, reviewsCount: 142,
     img: "4.png",
     ribbon: null,
     highlights: [
-      "3 قطع في باك واحد: كريم + تيوب مرطب + سبراي جسم",
-      "رائحة فانيليا دافئة وحلوة تدوم طويلاً",
-      "تركيبة مرطبة تمنح البشرة نعومة حريرية"
+      "لمسة مميزة مستوحاة من طبيعة الهيملايا",
+      "تركيبة طبيعية 100% بحجم 50 مل",
+      "روتين عناية مختلف عن المعتاد"
     ],
-    longDesc: "باك <strong>نسمة الفانيليا</strong> يمنحكِ دفئاً وحلاوة في رائحة تلتف حولك طوال اليوم. تركيبة ثلاثية غنية بالترطيب، مصممة لتدلل بشرتك وتترك أثراً عطرياً ناعماً يبقى في الذاكرة. اختيار مثالي لمحبات الروائح الحلوة الدافئة، سواء للاستخدام اليومي أو كهدية مميزة لمن تحبين.",
+    longDesc: "🏔️ <strong>زيت الهيملايا</strong> — لمسة مميزة مستوحاة من الطبيعة، لروتين عناية مختلف. تركيبة فريدة تمنح بشرتك ترطيباً عميقاً ورائحة مميزة تنقلك إلى أجواء هادئة ونقية، اختيار مثالي لمن تبحث عن تجربة عناية خارجة عن المألوف.",
     sellPoints: [
-      { title:"دفء وحلاوة", desc:"رائحة فانيليا آسرة تدوم من الصباح للمساء", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
-      { title:"نعومة حريرية", desc:"ترطيب عميق يترك البشرة ناعمة كالحرير", icon:"<circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 3'/>" },
-      { title:"جودة مضمونة", desc:"مكونات مختارة بعناية فائقة قبل التعبئة", icon:"<path d='M20 6 9 17l-5-5'/>" }
+      { title:"رائحة مميزة", desc:"لمسة مستوحاة من الطبيعة النقية", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/>" },
+      { title:"ترطيب عميق", desc:"لبشرة ناعمة وصحية من أول استخدام", icon:"<path d='M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z'/><path d='M12 8v6'/>" },
+      { title:"جودة عالية", desc:"مكونات مختارة بعناية فائقة قبل التعبئة", icon:"<path d='M20 6 9 17l-5-5'/>" }
     ],
     features: [
-      { tag:"الرائحة", title:"دفء الفانيليا في كل لحظة", desc:"مزيج فانيليا حلو ودافئ يمنحك حضوراً مميزاً أينما ذهبتِ، دون أن يكون ثقيلاً أو مزعجاً." },
-      { tag:"العناية", title:"روتين تدليل يومي بسيط", desc:"من الكريم الغني إلى السبراي المنعش، ثلاث خطوات تمنح بشرتك كل ما تحتاجه من رطوبة ورائحة فاخرة." }
+      { tag:"الرائحة", title:"نقاء يشبه قمم الجبال", desc:"رائحة مميزة ومنعشة تختلف عن الروائح التقليدية، تمنحك تجربة عناية جديدة كل يوم." },
+      { tag:"العناية", title:"روتين بسيط وفعّال", desc:"تركيبة سريعة الامتصاص تمنح بشرتك الترطيب الذي تحتاجه دون أي ثقل أو لزوجة." }
+    ],
+    usage: [
+      "بعد الاستحمام، ضعي كمية مناسبة من الزيت على بشرة نظيفة، ويفضل أن تكون رطبة قليلاً.",
+      "دلكي بلطف بحركات دائرية حتى يمتصه الجلد.",
+      "يمكن استعماله يومياً، خصوصاً بعد الاستحمام، للحصول على بشرة ناعمة ومعطرة."
     ]
   }
 };
 
-const WHATSAPP_NUMBER = "212715072766"; // رقم واتساب المتجر
+const WHATSAPP_NUMBER = "212771275675"; // رقم واتساب المتجر
 
 const params = new URLSearchParams(window.location.search);
 let selectedId = params.get('id');
@@ -354,7 +387,7 @@ if(!product){
     <div class="empty-state">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
       <p>لم يتم اختيار منتج بعد.</p>
-      <a href="index.html">تصفح المنتجات</a>
+      <a href="store.html">تصفح المنتجات</a>
     </div>`;
 } else {
   const waMsg = encodeURIComponent(`مرحباً، أرغب في شراء المنتج التالي:\n${product.name}\nالسعر: ${product.price} درهم\nرابط المنتج: ${window.location.href}`);
@@ -428,12 +461,29 @@ if(!product){
       </div>
     </section>
 
+    <!-- Usage instructions -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="eyebrow">🌸 طريقة الاستعمال</span>
+          <h2>روتين بسيط لعناية يومية</h2>
+        </div>
+        <div class="usage-steps">
+          ${product.usage.map((step, i) => `
+            <div class="usage-step">
+              <div class="usage-num">${i+1}</div>
+              <p>${step}</p>
+            </div>`).join('')}
+        </div>
+      </div>
+    </section>
+
     <!-- Feature blocks: big image + short text -->
     <section class="section">
       <div class="section-inner">
         ${product.features.map((f, i) => `
           <div class="feature-block ${i % 2 === 1 ? 'reverse' : ''}">
-            <div class="feature-media"><img src="${product.img}" alt="${f.title}"></div>
+            <div class="feature-media"><img src="${i === 0 ? '7.png' : '8.png'}" alt="${f.title}"></div>
             <div class="feature-text">
               <span class="tag">${f.tag}</span>
               <h3>${f.title}</h3>
