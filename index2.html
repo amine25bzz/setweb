@@ -240,7 +240,7 @@
           <img src="5.png" alt="RA REVA" style="width:100%;height:100%;object-fit:contain;">
         </div>REVA<span class="dot">RA</span>
     </div>
-    <a href="store.html" class="back-link">
+    <a href="index.html" class="back-link">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
       العودة للمتجر
     </a>
@@ -261,7 +261,7 @@ const PRODUCTS = {
   1: {
     name: "باك العناية الكامل - 3 زيوت (خزامة، ورد، هيملايا)",
     brand: "RA REVA",
-    price: 149, oldPrice: 199,
+    price: 179, oldPrice: 199,
     rating: 4.9, reviewsCount: 284,
     img: "1.png",
     ribbon: "الأكثر طلباً",
@@ -289,7 +289,7 @@ const PRODUCTS = {
   2: {
     name: "زيت الخزامة الفاخر - عناية بالجسم 50ml",
     brand: "RA REVA",
-    price: 89, oldPrice: 119,
+    price: 75, oldPrice: 99,
     rating: 4.8, reviewsCount: 176,
     img: "2.png",
     ribbon: "جديد",
@@ -317,7 +317,7 @@ const PRODUCTS = {
   3: {
     name: "زيت الورد الأنيق - عناية بالجسم 50ml",
     brand: "RA REVA",
-    price: 89, oldPrice: 119,
+    price: 75, oldPrice: 99,
     rating: 4.9, reviewsCount: 231,
     img: "3.png",
     ribbon: "الأكثر مبيعاً",
@@ -345,7 +345,7 @@ const PRODUCTS = {
   4: {
     name: "زيت الهيملايا المميز - عناية بالجسم 50ml",
     brand: "RA REVA",
-    price: 89, oldPrice: 119,
+    price: 75, oldPrice: 99,
     rating: 4.7, reviewsCount: 142,
     img: "4.png",
     ribbon: null,
@@ -372,7 +372,7 @@ const PRODUCTS = {
   }
 };
 
-const WHATSAPP_NUMBER = "212771275675"; // رقم واتساب المتجر
+const WHATSAPP_NUMBER = "212767583625"; // رقم واتساب المتجر
 
 const params = new URLSearchParams(window.location.search);
 let selectedId = params.get('id');
@@ -387,7 +387,7 @@ if(!product){
     <div class="empty-state">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
       <p>لم يتم اختيار منتج بعد.</p>
-      <a href="store.html">تصفح المنتجات</a>
+      <a href="index.html">تصفح المنتجات</a>
     </div>`;
 } else {
   const waMsg = encodeURIComponent(`مرحباً، أرغب في شراء المنتج التالي:\n${product.name}\nالسعر: ${product.price} درهم\nرابط المنتج: ${window.location.href}`);
